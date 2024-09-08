@@ -1,0 +1,28 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class='container'>
+        <h1 class='resume'>Resume Builder</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.name.label }} {{ form.name }}<br>
+            {{ form.email.label }} {{ form.email }}<br>
+            {{ form.phone.label }} {{ form.phone }}<br>
+            {{ form.address.label }} {{ form.address }}<br>
+            {{ form.aboutme.label }} {{ form.aboutme }}<br>
+            {{ form.skills.label }} <textarea name="skills"></textarea><br>
+            {{ form.languages.label }} <textarea name="languages"></textarea><br>
+            {{ form.education.label }} {{ form.education }}<br>
+            {{ form.experience.label }} {{ form.experience }}<br>
+            {{ form.submit() }}
+        </form>
+    </div>
+</body>
+</html>

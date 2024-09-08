@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Resume</title>
+    <link rel='stylesheet' href='./static/style.css'>
+    <!-- Add html2pdf.js library from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const element = document.querySelector('.a4-container');
+            html2pdf()
+                .from(element)
+                .save('resume.pdf');
+        }
+    </script>
+</head>
+<body>
+    <div class='a4-container'>
+        <div class='container'>
+            <aside class='side'>
+                <div class='profile'>
+                    <h1>{{ data['name'] }}</h1>
+                </div>
+                <div class='contact'>
+                    <h3>Contact</h3>
+                    <p><strong>Email:</strong> {{ data['email'] }}</p>
+                    <p><strong>Phone:</strong> {{ data['phone'] }}</p>
+                    <p><strong>Address:</strong> {{ data['address'] }}</p>
+                </div>
+                <div class='skills'>
+                    <h2>Skills</h2>
+                    <ul>
+                        {% for skill in data['skills'].split() %}
+                            <li>{{ skill }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class='language'>
+                    <h2>Languages</h2>
+                    <ul>
+                        {% for language in data['languages'].split() %}
+                            <li>{{ language }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </aside>
+            <div class='main_content'>
+                <section class='aboutme'>
+                    <h2>About Me</h2>
+                    <p>{{ data['aboutme'] }}</p>
+                </section>
+                <section class='education'>
+                    <h2>Education</h2>
+                    <p>{{ data['education'] }}</p>
+                </section>
+                <section class='experience'>
+                    <h2>Experience</h2>
+                    <p>{{ data['experience'] }}</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <button onclick="downloadPDF()">Download as PDF</button>
+</body>
+</html>
