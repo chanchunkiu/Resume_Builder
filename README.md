@@ -3,8 +3,8 @@ Most resume builder needed a subscription to use so I build one for myself.
 
 requiremens: install flask and wt_forms
 
-##How to use?
-##Firstly run the python file app.py in terminal and copy the link of ip address to your browser
+#How to use?
+#Firstly run the python file app.py in terminal and copy the link of ip address to your browser
 
 
 
